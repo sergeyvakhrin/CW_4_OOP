@@ -1,5 +1,5 @@
 from config import NONE_DATA
-from fileworker import FileWorker
+from src.classes.fileworker import FileWorker
 
 
 class Vacancy(FileWorker):

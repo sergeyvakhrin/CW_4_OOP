@@ -1,8 +1,8 @@
 import os
 
 from config import HH_REQUEST_PATH, FILTER_VACANCY_PATH, FILTER_VACANCY_PATH_JSON, NONE_DATA
-from hh import HH
-from vacancy import Vacancy
+from src.classes.hh import HH
+from src.classes.vacancy import Vacancy
 
 
 def print_res(res_data):
