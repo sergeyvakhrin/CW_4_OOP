@@ -158,6 +158,7 @@ def user_interaction(temp):
         except FileNotFoundError:
             os.makedirs("data")
             vac2.save_data(HH_REQUEST_PATH, "wt", vacancies)
+
         # Получение списка экземпляров класса вакансий
         vacancies_list = vac2.get_vacancy_instance(vacancies)
 
