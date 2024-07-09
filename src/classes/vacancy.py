@@ -108,9 +108,10 @@ class Vacancy(FileWorker):
             for word in list_word:
                 if word in find_str:
                     self.filter_list.append(vacan)
+                    Vacancy.vacancies_list = self.filter_list
                     break
 
-        return self.filter_list
+        return Vacancy.vacancies_list
 
     def get_top_n(self, top_n, vacancies_list):
         """ Метод для получения запрошенного кол-ва вакансий с максимальной зарплатой """
@@ -118,7 +119,8 @@ class Vacancy(FileWorker):
         for key, vacan in enumerate(vacancies_list, 1):
             self.filter_list.append(vacan)
             if key == top_n:
-                return self.filter_list
+                Vacancy.vacancies_list = self.filter_list
+                return Vacancy.vacancies_list
 
     def get_range_salary_list(self, salary_range, vacancies_list):
         """ Метод для получения списка вакансий по диапазону зарплат """
@@ -126,7 +128,8 @@ class Vacancy(FileWorker):
         for vacan in vacancies_list:
             if vacan.salary_from in range(int(salary_range[0]), int(salary_range[-1])):
                 self.filter_list.append(vacan)
-        return self.filter_list
+                Vacancy.vacancies_list = self.filter_list
+        return Vacancy.vacancies_list
 
     def class_in_dict(self, filter_list):
         """ Формирование словаря для записи в файл .json """

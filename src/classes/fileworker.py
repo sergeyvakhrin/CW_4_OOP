@@ -5,11 +5,11 @@ from abc import ABC, abstractmethod
 class Worker(ABC):
     """ Асбтрактный класс """
     @abstractmethod
-    def save_data(self):
+    def save_data(self, path: str, mode: str, data: list[dict]):
         pass
 
     @abstractmethod
-    def load_data(self):
+    def load_data(self, path: str):
         pass
 
 
