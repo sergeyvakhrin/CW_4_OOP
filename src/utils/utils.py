@@ -37,7 +37,7 @@ def get_top(vacancies_list):
 
 # Получение вакансий по ключевым словам
 def get_word(vacancies_list):
-    """  """
+    """ Функция фильтрации по словам """
     filter_words = input("Введите ключевые слова для фильтрации вакансий: ").lower().split()
     filter_vacanceis = vacancies_list[0].get_vacations_filter(filter_words, vacancies_list)
     if len(filter_vacanceis) == 0:
@@ -50,7 +50,7 @@ def get_word(vacancies_list):
 
 # Получение вакансий по диапазону зарплат
 def get_salary(vacancies_list):
-    """  """
+    """ Функция фильтрации по диапазону зарплат """
     salary_range = input("Введите диапазон зарплат через пробел (50000 100000): ").split()
     if len(salary_range) < 2:
         salary_range.append(100000000)
@@ -73,6 +73,7 @@ def get_salary(vacancies_list):
 
 
 def menu():
+    """ Функция интерактива с пользователем """
     menu = {
              "1": ["Загрузка данных с HH.ru", user_interaction, ""],
              "2": ["Загрузка ранее сделанного запроса", user_load, HH_REQUEST_PATH],
@@ -85,6 +86,7 @@ def menu():
 
 
 def menu_filter(vacancies_list):
+    """ Функция интерактива с пользователем """
     menu_filter = {
         "1": ["Получение топ N вакансий по зарплате", get_top],
         "2": ["Получение вакансий по ключевым словам", get_word],
@@ -98,7 +100,7 @@ def menu_filter(vacancies_list):
 
 
 def menu_user_load():
-    """  """
+    """ Функция интерактива с пользователем """
     menu_user_load = {
         "1": ["Удалить вакансию по id", del_data_file],
         "2": ["В главное меню", menu],
@@ -110,7 +112,7 @@ def menu_user_load():
 
 
 def del_data_file():
-    """  """
+    """ Функция удаления по id """
     vacancies_list = Vacancy.del_data()
     if vacancies_list is None:
         menu_user_load()
@@ -136,7 +138,7 @@ def print_menu(menu):
 
 
 def user_interaction(temp):
-    """ Метод для получения данных с HH.ru """
+    """ Функция для получения данных с HH.ru """
     # Создаем экземпляр класса для работы с HH.ru
     hh = HH()
     # Заглушка для обращения к методам класса пока не созданы экземпляры класса
@@ -167,7 +169,7 @@ def user_interaction(temp):
 
 
 def user_load(path):
-    """ Метод для загрузки ранее сохраненных вакансий """
+    """ Функция для загрузки ранее сохраненных вакансий """
     # Заглушка для обращения к методам класса пока не созданы экземпляры класса
     vac = Vacancy("", "name", "", "", "", 0, 0)
 
