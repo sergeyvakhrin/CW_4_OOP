@@ -5,7 +5,7 @@ from src.classes.hh import HH
 from src.classes.vacancy import Vacancy
 
 
-def print_res(res_data):
+def print_res(res_data: list) -> None:
     """ Функция вывода результатов фильтрации """
     for n in range(0, len(res_data)):
         if res_data[n].salary_from == 0:
